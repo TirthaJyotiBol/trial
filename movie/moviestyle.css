@@ -1,0 +1,135 @@
+*{
+    margin-top: 0%;
+    margin-left: 0%;
+    margin-right: 0%;
+    margin-bottom: 0%;
+}
+body{
+    background-color: rgb(0, 0, 0);
+}
+#topimage{
+    height:12cm;
+    padding-top: 0.2cm;
+ background-image: url(https://wallpaperaccess.com/full/25187.jpg); 
+    opacity: 78%;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.37);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    border-bottom: black solid 3px;
+    box-shadow: rgb(122, 122, 122) 3px 3px 8px ;
+}
+
+#topimage span h2{
+    color: rgb(255, 255, 255);
+    margin-top: 0.5cm;
+    font-family: 'Abril Fatface', cursive;
+    float: left;
+}
+span h2 {
+    padding-left: 0.7cm;
+}
+span h2 i{ color: yellow;}
+
+#topimage button {
+    background-color: rgba(255, 5, 5, 0.938);
+    color: rgb(255, 255, 255);
+    float: right;
+    margin-top: 0.6cm;
+    margin-right: 1cm;
+}
+#topimage button a{
+    text-decoration: none;
+    color: white;
+    font-family: 'ZCOOL KuaiLe';
+}
+#topimage button:hover {
+    background-color:  rgba(255, 5, 18, 0.527);
+}
+#topimage h1 {
+    color: rgb(255, 255, 255);
+   
+    font-family: 'Zen Tokyo Zoo';
+    font-size: 1.3cm;
+    font-weight: bolder;
+    margin-top: 5cm;
+    margin-left: 6.5cm;
+}
+#topimage h3 {
+    color: rgb(245, 222, 222);
+    font-size: 0.8cm;
+    font-family: 'Mate', serif;
+    margin-left: 14cm;
+}
+
+#topimage form{
+    width: 15cm;
+    padding-top: 0.3cm;
+    margin-left: 12cm;
+}
+
+#topimage form button{
+    color: rgb(255, 255, 255);
+    background-color: rgba(112, 108, 108, 0.842);
+    width: 4cm;
+}
+#topimage form button :hover{
+    color: rgb(255, 255, 255);
+}
+#upcomming_movies{
+    margin-top: 1cm;
+    margin-left: 1cm;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(253, 60, 60);
+}
+
+#movieimage{
+    padding-top: 0.4cm;
+    margin-left: 29.19px;
+    position: relative;
+    height: 5cm;
+    width: 6cm;
+    margin-bottom: 0.8cm;
+}
+#movie_name{
+    margin-left: 4px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    font-size: 0.4cm;
+    margin-bottom: 0.15cm;
+}
+#moviedescription{
+    margin-top: 0.01cm;
+    color: rgb(255, 255, 255);
+    display:block;
+    margin-left: 6px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+
+.scroll{
+    padding: 1cm;
+    display: flex;
+    height: 14.8cm;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    overflow-y: hidden;
+}
+#one{
+    margin-left: 0.8cm;
+    padding: 10px;
+     
+}
+.card{
+    background-color: rgb(21, 21, 21); 
+    color: rgb(255, 255, 255);
+    margin-left: -1cm;
+    margin-right: 0.9cm;
+}
+.card:hover{
+    background-color: rgba(73, 73, 73, 0.748); 
+    cursor: pointer;
+}

@@ -1,34 +1,61 @@
 
 <!doctype html>
 <html lang="en">
+<!-- base url for the images -->
+<?php $image_base_url = 'https://image.tmdb.org/t/p/w500/'; ?>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" /> 
     <style><?php include 'moviestyle.css' ?></style>
-     <?php include'apiMovie.php'?>
+     <?php include 'apiMovie.php'?>
     <title>Movie</title>
   </head>
 
   <body>
-
   <div id="topimage">
   <span>
-  <h2><i class="fas fa-couch"></i>  FlixZone</h2>
+  <h2><i class="fas fa-couch"></i>  Flix</h2>
   <button class="btn btn-outline-danger" type="submit"><a href="">HOME</a> </button>
   </span>
     <h1 >Your Free Movie Website , Enjoy chill Relax </h1>
     <h3>Watch Anywhere , Anytime </h3>
-  <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search Your Movie Name" aria-label="Search"> 
-        <button class="btn btn-outline" type="submit">Search</button>
+  <form method="post" class="d-flex" >
+        <input class="form-control me-2" name="query" type="search" placeholder="Search Your Movie Name" aria-label="Search" required/>  
+        <button class="btn btn-outline" name="submit" type="submit" value="redirect" >Search</button>
       </form>
   </div>
 
-<?php 
-$image_base_url = 'https://image.tmdb.org/t/p/w500/';    //base url for the images
-?>
+
+  <?php 
+  if (isset($_POST["submit"]))       
+  {
+    $search = file_get_contents('https://api.themoviedb.org/3/search/movie?api_key=121637e27fe7c108abef3b18d97cb40f&query='. $_POST['query']);
+    $search = json_decode($search,true);
+     ?>  <h1 class="grid">SEARCH RESULTS</h1> <?php 
+    $i=0;
+    while($i<20){
+   ?> 
+                     <!-- search results -->
+
+   <div id="searchresults" data-aos="fade-up" delay="800" data-aos-duration="5000"> 
+   <div class="grid" background-color: white; >
+   <img src="<?php echo $image_base_url.$search['results'][$i]['poster_path']  ?> "alt="image not">
+   <section>
+   <div class="name"> <?php echo $search['results'][$i]['original_title']   ?></div> <br>
+   <div class="decs"><?php echo $search['results'][$i]['overview'] ?>  </div> 
+   <div class="ratings" color="red" ><?php echo $search['results'][$i]['vote_average']  ?>  </div>
+   </section>
+   </div> 
+   </div> <?php  $i++; }
+
+  }
+
+  ?>
+
+
+
 
 
 <!-- <div data-aos="fade-up" data-aos-duration="5000"> -->
@@ -93,5 +120,5 @@ $image_base_url = 'https://image.tmdb.org/t/p/w500/';    //base url for the imag
     <!-- above script for scroll animation purpose -->
  
   </body>
-</html>
 
+</html>

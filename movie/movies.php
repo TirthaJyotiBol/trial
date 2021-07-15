@@ -21,6 +21,7 @@
   </span>
     <h1 >Your Free Movie Website , Enjoy chill Relax </h1>
     <h3>Watch Anywhere , Anytime </h3>
+
   <form method="post" class="d-flex" >
         <input class="form-control me-2" name="query" type="search" placeholder="Search Your Movie Name" aria-label="Search" required/>  
         <button class="btn btn-outline" name="submit" type="submit" value="redirect" >Search</button>
@@ -30,86 +31,158 @@
 
   <?php 
   if (isset($_POST["submit"]))       
-  {
+  {  ?>   <?php
+     // query is the one which is being searched in
     $search = file_get_contents('https://api.themoviedb.org/3/search/movie?api_key=121637e27fe7c108abef3b18d97cb40f&query='. $_POST['query']);
     $search = json_decode($search,true);
-     ?>  <h1 class="grid">SEARCH RESULTS</h1> <?php 
+     ?>  <h1 id="upcomming_movies">SEARCH RESULTS</h1>
+     <div class="trial">
+     <?php 
     $i=0;
     while($i<20){
    ?> 
                      <!-- search results -->
 
-   <div id="searchresults" data-aos="fade-up" delay="800" data-aos-duration="5000"> 
-   <div class="grid" background-color: white; >
-   <img src="<?php echo $image_base_url.$search['results'][$i]['poster_path']  ?> "alt="image not">
-   <section>
-   <div class="name"> <?php echo $search['results'][$i]['original_title']   ?></div> <br>
-   <div class="decs"><?php echo $search['results'][$i]['overview'] ?>  </div> 
-   <div class="ratings" color="red" ><?php echo $search['results'][$i]['vote_average']  ?>  </div>
-   </section>
-   </div> 
-   </div> <?php  $i++; }
+ <section>
+<img id="movieimage_trial" src= "<?php  echo $image_base_url.$search['results'][$i]['poster_path'] ?>" alt="one.jpg"> 
+<?php if($search['results'][$i]['vote_average'] >8) { ?>
+<p id="vote">  <?php echo $search['results'][$i]['vote_average']  ?>  </p>
+<?php
+ } 
+  else
+{  ?>
+  <p id="vote_green">  <?php echo $search['results'][$i]['vote_average']  ?>  </p>
+  <?php  }?>
 
+<p id="movie_name_trial" class="card-text"><?php echo $search['results'][$i]['original_title'] ?></p>
+<p id="release_date"> <?php echo  $search['results'][$i]['release_date'] ?>    </p>
+</section>  
+<?php  $i++; }
   }
-
   ?>
-
-
-
-
-
-<!-- <div data-aos="fade-up" data-aos-duration="5000"> -->
-
-<section class="popular"> 
-<h1 id="upcomming_movies"> UPCOMMING MOVIES </h1>
-<div class="scroll">
-<?php $i=0;  while($i<19){?>         
-
-  <!-- while loop for displaying the movie card multiple times   -->
-<!-- upcomming movies -->
-<span id="one">
-<div class="card" style="width: 18rem; height:13cm">
-<img id="movieimage" src= "<?php  echo $image_base_url.$data['results'][$i]['poster_path'] ?>" alt="one.jpg"> 
-<p id="movie_name" class="card-text"><?php echo"Movie : ". $data['results'][$i]['original_title'] ?></p>  <br>
-<p id="moviedescription" class="card-text"> <?php echo $data['results'][$i]['overview']?></p>
 </div>
-</span>
+
+
+
+
+
+<h1 id="upcomming_movies"> UPCOMMINGS </h1>
+<div class="trial"  data-aos="fade-up" delay="800" data-aos-duration="5000" >
+<?php $i=0; while($i<20){?>       
+  <section>
+<img id="movieimage_trial" src= "<?php  echo $image_base_url.$data['results'][$i]['poster_path'] ?>" alt="one.jpg"> 
+
+<?php if($data['results'][$i]['vote_average'] >8) { ?>
+<p id="vote">  <?php echo $data['results'][$i]['vote_average']  ?>  </p>
+<?php
+ } 
+  else
+{  ?>
+  <p id="vote_green">  <?php echo $data['results'][$i]['vote_average']  ?>  </p>
+  <?php  }?>
+
+<p id="movie_name_trial" class="card-text"><?php echo $data['results'][$i]['original_title'] ?></p>
+<p id="release_date"> <?php echo  $data['results'][$i]['release_date'] ?>    </p>
+</section>  
 <?php $i++; } ?>
-</section>
+</div>
 <br>
 
 <!-- popular movies -->
 
 
 
-<section class="popular" data-aos="fade-up" data-aos-duration="5000"> 
-<h1 id="upcomming_movies"> POPULAR MOVIES </h1>
-<div class="scroll">
-<?php $i=0; while($i<19){?>         
-<span id="one">
-<div class="card" style="width: 18rem; height:13cm">
-<img id="movieimage" src= "<?php  echo $image_base_url.$popular['results'][$i]['poster_path'] ?>" alt="one.jpg"> 
-<p id="movie_name" class="card-text"><?php echo"Movie : ". $popular['results'][$i]['original_title'] ?></p>  <br>
-<p id="moviedescription" class="card-text"> <?php echo $popular['results'][$i]['overview']?></p>
-</div>
-</span>
+<h1 id="upcomming_movies"> POPULAR </h1>
+<div class="trial"  data-aos="fade-up" delay="800" data-aos-duration="5000">
+<?php $i=0; while($i<20){?>       
+  <section>
+<img id="movieimage_trial" src= "<?php  echo $image_base_url.$popular['results'][$i]['poster_path'] ?>" alt="one.jpg"> 
+
+<?php if($popular['results'][$i]['vote_average'] >8) { ?>
+<p id="vote">  <?php echo $popular['results'][$i]['vote_average']  ?>  </p>
+<?php
+ } 
+  else
+{  ?>
+  <p id="vote_green">  <?php echo $popular['results'][$i]['vote_average']  ?>  </p>
+  <?php  }?>
+
+<p id="movie_name_trial" class="card-text"><?php echo $popular['results'][$i]['original_title'] ?></p>
+<p id="release_date"> <?php echo  $popular['results'][$i]['release_date'] ?>    </p>
+</section>  
 <?php $i++; } ?>
-</section>
+</div>
 
 
-<section class="popular" data-aos="fade-up" delay="800" data-aos-duration="5000"> 
+<!-- trendings-->
 <h1 id="upcomming_movies"> TRENDINGS </h1>
-<div class="scroll">
-<?php $i=0; while($i<19){?>         
-<span id="one">
-<div class="card" style="width: 18rem; height:13cm">
-<img id="movieimage" src= "<?php  echo $image_base_url.$trending['results'][$i]['poster_path'] ?>" alt="one.jpg"> 
-<p id="movie_name" class="card-text"><?php echo"Movie : ". $trending['results'][$i]['original_title'] ?></p>  <br>
-<p id="moviedescription" class="card-text"> <?php echo $trending['results'][$i]['overview']?></p>
-</div>
-</span>
+<div class="trial"  data-aos="fade-up" delay="800" data-aos-duration="5000">
+<?php $i=0; while($i<20){?>       
+  <section>
+<img id="movieimage_trial" src= "<?php  echo $image_base_url.$trending['results'][$i]['poster_path'] ?>" alt="one.jpg"> 
+
+<?php if($trending['results'][$i]['vote_average'] >8) { ?>
+<p id="vote">  <?php echo $trending['results'][$i]['vote_average']  ?>  </p>
+<?php
+ } 
+  else
+{  ?>
+  <p id="vote_green">  <?php echo $trending['results'][$i]['vote_average']  ?>  </p>
+  <?php  }?>
+
+<p id="movie_name_trial" class="card-text"><?php echo $trending['results'][$i]['original_title'] ?></p>
+<p id="release_date"> <?php echo  $trending['results'][$i]['release_date'] ?>    </p>
+</section>  
 <?php $i++; } ?>
-</section>
+</div>
+
+
+
+
+<!-- Now Playing -->
+<h1 id="upcomming_movies">NOW PLAYING</h1>
+<div class="trial"  data-aos="fade-up" delay="800" data-aos-duration="5000">
+<?php $i=0; while($i<20){?>       
+  <section>
+<img id="movieimage_trial" src= "<?php  echo $image_base_url.$now_playing['results'][$i]['poster_path']?>" alt="one.jpg"> 
+
+<?php if($now_playing['results'][$i]['vote_average'] >8) { ?>
+<p id="vote">  <?php echo $now_playing['results'][$i]['vote_average']  ?>  </p>
+<?php
+ } 
+  else
+{  ?>
+  <p id="vote_green">  <?php echo $now_playing['results'][$i]['vote_average']  ?>  </p>
+  <?php  }?>
+
+<p id="movie_name_trial" class="card-text"><?php echo $now_playing['results'][$i]['original_title'] ?></p>
+<p id="release_date"> <?php echo  $now_playing['results'][$i]['release_date'] ?>    </p>
+</section>  
+<?php $i++; } ?>
+</div>
+
+
+
+<!-- top-rated-->
+<h1 id="upcomming_movies">TOP RATED</h1>
+<div class="trial"  data-aos="fade-up" delay="800" data-aos-duration="5000">
+<?php $i=0; while($i<20){?>       
+  <section>
+<img id="movieimage_trial" src= "<?php  echo $image_base_url.$top_rated['results'][$i]['poster_path']?>" alt="one.jpg"> 
+
+<?php if($top_rated['results'][$i]['vote_average'] >8) { ?>
+<p id="vote">  <?php echo $top_rated['results'][$i]['vote_average']  ?>  </p>
+<?php
+ } 
+  else
+{  ?>
+  <p id="vote_green">  <?php echo $top_rated['results'][$i]['vote_average']  ?>  </p>
+  <?php  }?>
+
+<p id="movie_name_trial" class="card-text"><?php echo $top_rated['results'][$i]['original_title'] ?></p>
+<p id="release_date"> <?php echo  $top_rated['results'][$i]['release_date'] ?>    </p>
+</section>  
+<?php $i++; } ?>
 </div>
 
   <script src="https://kit.fontawesome.com/98be8a5830.js" crossorigin="anonymous"></script>
@@ -119,6 +192,17 @@
     <script> AOS.init({ offset: 100,duration: 500}); </script>    
     <!-- above script for scroll animation purpose -->
  
-  </body>
+   
+<div class="footer">
+<h3 id="h2" > FLIX </h3>
+</div>
+
+<div class="flex">
+    <a href="movies.php"> Terms and conditions </a>
+    <a href="movies.php">help</a>
+    <a href="movies.php">feedback</a>
+</div>
+
 
 </html>
+

@@ -5,7 +5,7 @@
     margin-bottom: 0%;
 }
 body{
-    background-color: rgb(1, 3, 21);
+    background-color: rgb(5, 0, 22);
     scroll-behavior: smooth;
 }
 #topimage{
@@ -89,19 +89,21 @@ span h2 i{ color: rgb(255, 231, 96);}
 }
 
 #movieimage{
-    margin-top: 0.4cm;
+    margin-top: 0.1cm;
     border:solid 2px rgb(58, 57, 57) 3px 3px ;
     border-radius: 6px;
-    margin-left: 29.19px;
+    margin-left: 8px;
     position: relative;
-    height: 5cm;
-    width: 6cm;
-    margin-bottom: 0.8cm;
+    height: 7cm;
+    width: 7cm;
+    margin-bottom: 0.4cm;
 }
+
 #movieimage:hover{
     border:solid 4px rgb(73, 73, 73) 4px 4px ;
     display: none;
 }
+
 #movie_name{
     margin-left: 4px;
     justify-content: center;
@@ -113,10 +115,12 @@ span h2 i{ color: rgb(255, 231, 96);}
 #moviedescription{
     margin-top: 0.01cm;
     color: rgb(255, 255, 255);
- 
+    /* display: none; */
     margin-left: 6px;
     font-family: 'Times New Roman', Times, serif;
 }
+#moviedescription:hover{display: block;}
+
 
 
 
@@ -124,7 +128,6 @@ span h2 i{ color: rgb(255, 231, 96);}
     padding: 1cm;
     display: flex;
     height: 14.8cm;
-  
     overflow-x: scroll;
     scroll-behavior: smooth;
     overflow-y: hidden;
@@ -179,3 +182,96 @@ img{
                margin-right: 0.7cm;      }
 
 
+
+
+               /* trial */
+.trial{
+    display: flex;
+    overflow-x: scroll;
+    scroll-behavior: smooth;
+    overflow-y: hidden;
+    padding: 1cm;
+  
+}
+.trial section{
+    margin-left: 1cm;
+}
+ #movieimage_trial{
+     height: 6cm;
+     width: 5cm;
+     opacity: 80%;
+     border-radius: 10%;
+ }            
+
+ #movieimage_trial:hover{
+     cursor: pointer;
+     opacity: 100%;
+ }
+ #movie_name_trial{
+     color: rgb(255, 255, 255);
+     font-family: 'Domine', serif;
+     font-size: larger;
+     font-weight: bolder;
+     margin-left: 1px;
+ }  
+ #release_date{
+     color: rgb(255, 255, 255);
+     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+     margin-left: 1px;
+   
+ }  
+
+ #vote{
+     border: solid 2px rgb(255, 0, 0);
+     border-radius: 60%;
+     background-color: rgb(235, 28, 28);
+     color: rgb(255, 255, 255);
+     width: 1.2cm;
+     font-weight: bolder;
+     height: 1.2cm;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     padding-left: 9px;
+     padding-top: 7px;
+     margin-top: -0.5cm;
+     opacity: 100%;
+     position: relative;
+     margin-bottom: 0.2cm;
+     margin-left: 0.5cm;
+ }
+ #vote_green{
+     border: solid 2px rgb(38, 85, 22);
+     border-radius: 60%;
+     background-color: rgb(33, 89, 14);
+     color: rgb(255, 255, 255);
+     width: 1.2cm;
+     font-weight: bolder;
+     height: 1.2cm;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+     padding-left: 9px;
+     padding-top: 7px;
+     margin-top: -0.5cm;
+     opacity: 100%;
+     position: relative;
+     margin-bottom: 0.2cm;
+     margin-left: 0.5cm;
+ }
+
+
+ /* footer */
+ #h2{
+    color:white;
+    margin-left:17cm;
+    margin-top:1cm;
+}
+.flex a{
+    color:rgb(87, 87, 255);
+    margin-left:2cm;
+    margin-top:0.3cm;
+    text-decoration: none;
+    list-style:none;
+}
+.flex{
+    margin-left:9.5cm;
+    display:flex;
+    margin-bottom: 1cm;
+}
